@@ -15,6 +15,7 @@ body {
      border: 3px solid black;
      border-radius: 5%;
      margin: 150px;
+     background-color: lightslategrey;
  }
 
  #display {
@@ -22,18 +23,23 @@ body {
     width: 350px;
     border: 1px solid black;
     margin: 20px;
+    background-color: white;
+    border-radius: 5%;
+    text-align: end;
+    font-size: 25px;
+    
  }
 
  #top-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 20px;
+    gap: 30px;
  }
 
  .clear, .ac {
     height: 70px;
-    width: 150px;
+    width: 160px;
     border: 1px solid black;
     border-radius: 5%;
     font-size: 22px;
@@ -51,4 +57,13 @@ body {
     height: 50px;
     width: 70px;
     margin: 10px;
+    font-size: 20px;
+    border-radius: 5%;
+ }
+
+ p {
+   position: absolute;
+   bottom: 580px;
+   right: 800px;
+   font-size: 35px;
  }
