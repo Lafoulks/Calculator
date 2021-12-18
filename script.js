@@ -31,10 +31,11 @@ function operate(operator, a, b,) {
 -Store the displayed number into the variable 'display-value' for later use
 */
 
-//Function to display button values
+//Logs values of # btns pressed
 const btns = document.querySelectorAll('.digit');
+const value = document.querySelector('p');
 btns.forEach((btns) => {
     btns.addEventListener('click', function ()  {
-        console.log(this.name);
+        value.innerHTML = this.name;
   });
 });
