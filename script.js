@@ -34,8 +34,7 @@ function operate(operator, a, b,) {
 //Function to display button values
 const btns = document.querySelectorAll('.digit');
 btns.forEach((btns) => {
-    btns.addEventListener('click', () => {
-        text = document.querySelector (".digit").innerHTML; 
-        console.log(text);
+    btns.addEventListener('click', function ()  {
+        console.log(this.name);
   });
 });
