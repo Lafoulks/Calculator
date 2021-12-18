@@ -24,3 +24,18 @@ function operate(operator, a, b,) {
         return (a / b);
     }
 };
+
+/*Create the functions that populate the display when you click the number buttons:
+-Upon click, each button must input corresponding value
+-Then value must show in display area
+-Store the displayed number into the variable 'display-value' for later use
+*/
+
+//Function to display button values
+const btns = document.querySelectorAll('.digit');
+btns.forEach((btns) => {
+    btns.addEventListener('click', () => {
+        text = document.querySelector (".digit").innerHTML; 
+        console.log(text);
+  });
+});
