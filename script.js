@@ -1,3 +1,12 @@
+const display = document.getElementById('#display');
+const btns = document.querySelectorAll('.digit');
+let value = document.querySelector('p');
+const sub = document.getElementsByName('sub');
+const plus = document.getElementsByName('plus');
+const div = document.getElementsByName('divide');
+const times = document.getElementsByName('multiply');
+
+//Operations
 function add(a, b) {
 	return a + b
 };
@@ -25,17 +34,13 @@ function operate(operator, a, b,) {
     }
 };
 
-/*Create the functions that populate the display when you click the number buttons:
--Upon click, each button must input corresponding value
--Then value must show in display area
--Store the displayed number into the variable 'display-value' for later use
-*/
-
-//Logs values of # btns pressed
-const btns = document.querySelectorAll('.digit');
-const value = document.querySelector('p');
+//Display numbers after button clicked. How to make multiple numbers appear instead of overwriting the first?
 btns.forEach((btns) => {
     btns.addEventListener('click', function ()  {
-        value.innerHTML = this.name;
+        value.textContent += btns.name;
   });
 });
+
+//Store first # that is input when user chooses an operator, save which operation, then operate() on them once "=" is pressed
+//After operate is called, update the display with the solution
+

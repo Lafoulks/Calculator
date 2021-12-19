@@ -27,7 +27,6 @@ body {
     border-radius: 5%;
     text-align: end;
     font-size: 25px;
-    
  }
 
  #top-row {
@@ -51,11 +50,11 @@ body {
  .ac {
     background-color: lightcoral;
  }
-  #numbers {
-     margin: 10px;
+  #buttons {
+     margin: 13px;
   }
 
- .digit {
+ .digit, .operator {
     height: 50px;
     width: 70px;
     margin: 10px;
