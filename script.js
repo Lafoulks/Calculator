@@ -1,14 +1,24 @@
+const plus = document.getElementById('plus');
+const digit = document.querySelectorAll('.digit');
+let value1 = document.querySelector('p.value1');
+
 let operations = {
-    plus: function add(a, b) {
+    addition: function add(a, b) {
         return a + b
     },
-    sub: function subtract(a, b) {
+    subtraction: function subtract(a, b) {
         return (a - b);
     },
-    times: function multiply(a, b) {
+    multiplication: function multiply(a, b) {
         return (a * b);
     },
-    div: function divide(a, b) {
+    division: function divide(a, b) {
         return (a / b);
     },
 }
+
+digit.forEach((digit) => {
+    digit.addEventListener('click', function () {
+        value1.textContent += digit.name;
+    });
+});
