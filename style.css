@@ -1,68 +1,68 @@
 body {
+   display: flex;
+   justify-content: center;
+   background-color:cadetblue;
+}
+
+#main-container {
     display: flex;
-    justify-content: center;
-    background-color:cadetblue;
- }
-
- #main-container {
-     display: flex;
-     flex-direction: column;
-     justify-content: space-between;
-     align-items: center;
-     align-content: center;
-     height: 500px;
-     width: 400px;
-     border: 3px solid black;
-     border-radius: 5%;
-     margin: 150px;
-     background-color: lightslategrey;
- }
-
- #display {
-    height: 100px;
-    width: 350px;
-    border: 1px solid black;
-    margin: 20px;
-    background-color: white;
-    border-radius: 5%;
-    text-align: end;
-    font-size: 25px;
- }
-
- #top-row {
-    display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    gap: 30px;
- }
-
- #clear, #ac {
-    height: 70px;
-    width: 160px;
+    align-content: center;
+    height: 500px;
+    width: 400px;
+    border: 3px solid black;
     border-radius: 5%;
-    font-size: 22px;
- }
+    margin: 150px;
+    background-color: lightslategrey;
+}
 
- #clear {
-    background-color: rgb(220, 241, 255);
- }
+#display {
+   height: 100px;
+   width: 350px;
+   border: 1px solid black;
+   margin: 20px;
+   background-color: white;
+   border-radius: 5%;
+   text-align: end;
+   font-size: 25px;
+}
 
- #ac {
-    background-color: lightcoral;
- }
-  #buttons {
-     margin: 10px;
-  }
+#top-row {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   gap: 30px;
+}
 
- .digit, .operator {
-    height: 50px;
-    width: 70px;
+#clear, #ac {
+   height: 70px;
+   width: 160px;
+   border-radius: 5%;
+   font-size: 22px;
+}
+
+#clear {
+   background-color: rgb(220, 241, 255);
+}
+
+#ac {
+   background-color: lightcoral;
+}
+ #buttons {
     margin: 10px;
-    font-size: 20px;
-    border-radius: 5%;
  }
 
- .value1, .value2 {
-   position: absolute;
-   font-size: 35px;
- }
+.digit, .operator {
+   height: 50px;
+   width: 70px;
+   margin: 10px;
+   font-size: 20px;
+   border-radius: 5%;
+}
+
+.value1, .value2 {
+  position: absolute;
+  font-size: 35px;
+}
