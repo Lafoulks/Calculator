@@ -1,8 +1,10 @@
 const plus = document.getElementById('plus');
 const digit = document.querySelectorAll('.digit');
-let value1 = document.querySelector('p.value1');
+let value = document.querySelector('p.value');
+const equals = document.getElementById('equals');
 
-let operations = {
+
+let operate = {
     addition: function add(a, b) {
         return a + b
     },
@@ -15,10 +17,16 @@ let operations = {
     division: function divide(a, b) {
         return (a / b);
     },
-}
+};
 
 digit.forEach((digit) => {
     digit.addEventListener('click', function () {
-        value1.textContent += digit.name;
+        value.textContent += digit.name;
+        console.log(value);
     });
+});
+
+plus.addEventListener('click', function (){
+    value.textContent = '';
+    console.log(value);
 });

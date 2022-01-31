@@ -62,7 +62,7 @@ body {
    border-radius: 5%;
 }
 
-.value1, .value2 {
+.value {
   position: absolute;
   font-size: 35px;
 }
