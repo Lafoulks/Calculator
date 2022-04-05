@@ -3,8 +3,8 @@ const digit = document.querySelectorAll('.digit');
 let value = document.querySelector('p.value');
 const equals = document.getElementById('equals');
 
-
-let operate = {
+//ask if this is the right way to store operators to be called upon in Operate function
+const operators = {
     addition: function add(a, b) {
         return a + b
     },
@@ -19,6 +19,7 @@ let operate = {
     },
 };
 
+//this shows visual of number pressed 
 digit.forEach((digit) => {
     digit.addEventListener('click', function () {
         value.textContent += digit.name;
@@ -26,7 +27,15 @@ digit.forEach((digit) => {
     });
 });
 
-plus.addEventListener('click', function (){
+//add value + a second value that will be tied to equal key? 
+//so no add function tied to this plus button
+plus.addEventListener('click', function add(a, b) {
     value.textContent = '';
     console.log(value);
 });
+
+
+//pull correct operator, use if/else to run though operator list? how to have it remember which operator was chosen?
+function operate() {
+
+};
