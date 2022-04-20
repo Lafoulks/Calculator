@@ -7,8 +7,8 @@ const equals = document.getElementById('equals');
 const ac = document.getElementById('ac');
 let display = document.querySelector('p.value');
 let op = null;
-let num1;
-let num2;
+let currentOperation;
+let previousOperation;
 
 //1. Create functions for all the basic math operators
 
@@ -21,13 +21,13 @@ let division = (a, b) => a / b;
 
 function operate(op, a, b) {
     if (op = add) {
-        return addition(a,b);
+        return addition();
     } else if (op = multiply) {
-        return multiplication(a, b);
+        return multiplication();
     } else if (op = divide) {
-        return division(a, b);
+        return division();
     } else if (op = subtract) {
-        return subtraction(a, b)
+        return subtraction()
     }
 };
 
@@ -42,9 +42,9 @@ ac.addEventListener('click', function() {
 digit.forEach((digit) => {
     digit.addEventListener('click', function () {
         display.innerHTML += digit.name;
-        num1 = display;
+        currentOperation = display;
         //By changing num1 to display, I store the value for later use while keeping the display visible?
-        console.log(num1);
+        console.log(currentOperation);
     });
 });
 
@@ -53,12 +53,18 @@ digit.forEach((digit) => {
     //Once operate has been called, update display with the solution
 
     multiply.addEventListener('click', function() {
-        console.log(num1);
-        //Yes! Num1 is called correctly!
+        if (currentOperation !== null) {
+            previousOperation = currentOperation;
+            currentOperation.innerHTML = '';
+            console.log(previousOperation);
+        };
     });
 
     equals.addEventListener('click', function () {
-
     });
 
-    //
+ //user presses input, input stored in currentOperation
+ //user presses operator
+ //currentOperation is sent to previousOperation (check if previousOperation has anything there yet)
+ //clear currentOperation so that it takes new inputs
+ //if previousOperation has something, then that's the condition (to evaluate? does equals only display the result, and does not actually calcualte?)
