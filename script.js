@@ -6,9 +6,10 @@ const divide = document.getElementById('divide');
 const equals = document.getElementById('equals');
 const ac = document.getElementById('ac');
 let display = document.querySelector('p.value');
-let op = null;
-let currentOperation;
-let previousOperation;
+let op;
+let currentOperation = [];
+let previousOperation = [];
+let result;
 
 //1. Create functions for all the basic math operators
 
@@ -21,13 +22,13 @@ let division = (a, b) => a / b;
 
 function operate(op, a, b) {
     if (op = add) {
-        return addition();
+        return addition(a, b);
     } else if (op = multiply) {
-        return multiplication();
+        return multiplication(a, b);
     } else if (op = divide) {
-        return division();
+        return division(a, b);
     } else if (op = subtract) {
-        return subtraction()
+        return subtraction(a, b)
     }
 };
 
@@ -37,34 +38,40 @@ ac.addEventListener('click', function() {
     display.innerHTML = '';
 });
 
+equals.addEventListener('click', function () {
+
+});
+
 //4. Create the functions that populate the display. Store the ‘display value’ in a variable somewhere for use in the next step.
 
 digit.forEach((digit) => {
     digit.addEventListener('click', function () {
         display.innerHTML += digit.name;
-        currentOperation = display;
-        //By changing num1 to display, I store the value for later use while keeping the display visible?
+        currentOperation = display.innerHTML;
         console.log(currentOperation);
     });
 });
 
-//5. Store the first number that is input into the calculator when a user presses an operator, 
-//Save which operation has been chosen and then operate() on them when the user presses the “=” key.
-    //Once operate has been called, update display with the solution
+/*5. Store the first number that is input into the calculator when a user presses an operator. 
+Save which operation has been chosen and then operate() on them when the user presses the “=” key.
+Once operate has been called, update display with the solution
+PSEUDO:
+ User presses input. Input displays on screen. Input stored in currentOperation 
+ User presses operator. currentOperation is pushed to previousOperation
+ Clear currentOperation so that it takes new inputs 
+ If both currentOperation and previousOperation have inputs, evaluate.
+ U
+ User presses equals, push evaluation to display
+ */
+   
+//clicking third number triggers the evaluate?
 
     multiply.addEventListener('click', function() {
-        if (currentOperation !== null) {
-            previousOperation = currentOperation;
-            currentOperation.innerHTML = '';
-            console.log(previousOperation);
-        };
+        previousOperation.push(currentOperation);
+        console.log(previousOperation);
+        display.innerHTML = '';
     });
 
-    equals.addEventListener('click', function () {
-    });
 
- //user presses input, input stored in currentOperation
- //user presses operator
- //currentOperation is sent to previousOperation (check if previousOperation has anything there yet)
- //clear currentOperation so that it takes new inputs
- //if previousOperation has something, then that's the condition (to evaluate? does equals only display the result, and does not actually calcualte?)
+
+
