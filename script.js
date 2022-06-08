@@ -1,10 +1,10 @@
-const digit = document.querySelectorAll('.digit');
-const add = document.getElementById('add');
-const subtract = document.getElementById('subtract');
-const multiply = document.getElementById('multiply');
-const divide = document.getElementById('divide');
-const equals = document.getElementById('equals');
-const ac = document.getElementById('ac');
+const DIGIT = document.querySelectorAll('.digit');
+const ADD = document.getElementById('add');
+const SUBTRACT = document.getElementById('subtract');
+const MULTIPLY = document.getElementById('multiply');
+const DIVIDE = document.getElementById('divide');
+const EQUALS = document.getElementById('equals');
+const AC = document.getElementById('ac');
 let display = document.querySelector('p.value');
 let op;
 let currentOperation = [];
@@ -13,40 +13,40 @@ let result;
 
 //1. Create functions for all the basic math operators
 
-let addition = (a, b) => a + b;
-let subtraction = (a, b) => a - b;
-let multiplication = (a, b) => a * b;
-let division = (a, b) => a / b;
+const ADDITION = (a, b) => a + b;
+const SUBTRACTION = (a, b) => a - b;
+const MULTIPLICATION = (a, b) => a * b;
+const DIVISION = (a, b) => a / b;
 
 //2. Create a new function operate that takes an operator and 2 numbers and then calls one of the above functions on the numbers.
 
 function operate(op, a, b) {
-    if (op = add) {
-        return addition(a, b);
-    } else if (op = multiply) {
-        return multiplication(a, b);
-    } else if (op = divide) {
-        return division(a, b);
-    } else if (op = subtract) {
-        return subtraction(a, b)
+    if (op = ADD) {
+        return ADDITION(a, b);
+    } else if (op = MULTIPLY) {
+        return MULTIPLICATION(a, b);
+    } else if (op = DIVIDE) {
+        return DIVISION(a, b);
+    } else if (op = SUBTRACT) {
+        return SUBTRACTION(a, b)
     }
 };
+let calculate = operate();
 
 //3. Create a basic HTML calculator with buttons for each digit, each of the above functions and an “Equals” key. Add a display and a "clear" button.
 
-ac.addEventListener('click', function() {
+AC.addEventListener('click', function() {
     display.innerHTML = '';
 });
 
-equals.addEventListener('click', function () {
-
+EQUALS.addEventListener('click', function () {
 });
 
 //4. Create the functions that populate the display. Store the ‘display value’ in a variable somewhere for use in the next step.
 
-digit.forEach((digit) => {
-    digit.addEventListener('click', function () {
-        display.innerHTML += digit.name;
+DIGIT.forEach((DIGIT) => {
+    DIGIT.addEventListener('click', function () {
+        display.innerHTML += DIGIT.name;
         currentOperation = display.innerHTML;
         console.log(currentOperation);
     });
@@ -54,22 +54,13 @@ digit.forEach((digit) => {
 
 /*5. Store the first number that is input into the calculator when a user presses an operator. 
 Save which operation has been chosen and then operate() on them when the user presses the “=” key.
-Once operate has been called, update display with the solution
-PSEUDO:
- User presses input. Input displays on screen. Input stored in currentOperation 
- User presses operator. currentOperation is pushed to previousOperation
- Clear currentOperation so that it takes new inputs 
- If both currentOperation and previousOperation have inputs, evaluate.
- U
- User presses equals, push evaluation to display
- */
-   
-//clicking third number triggers the evaluate?
+Once operate has been called, update display with the solution*/
 
-    multiply.addEventListener('click', function() {
+   MULTIPLY.addEventListener('click', function() {
         previousOperation.push(currentOperation);
-        console.log(previousOperation);
         display.innerHTML = '';
+        console.log(previousOperation);
+        console.log(currentOperation);
     });
 
 
