@@ -28,7 +28,7 @@ let operate = function (op, a, b) {
     } else if (op == DIVIDE) {
         return DIVISION(a, b);
     } else if (op == SUBTRACT) {
-        return SUBTRACTION(a, b)
+        return SUBTRACTION(a, b);
     }
 };
 
@@ -36,10 +36,12 @@ let operate = function (op, a, b) {
 
 AC.addEventListener('click', function() {
     display.innerHTML = '';
+    currentOperation = [];
+    previousOperation = [];
 });
 
 EQUALS.addEventListener('click', function () {
-    result = operate(op, currentOperation, +previousOperation);
+    result = operate(op, previousOperation, currentOperation);
     console.log(result);
     display.innerHTML = result;
 });
@@ -62,6 +64,12 @@ Once operate has been called, update display with the solution*/
         previousOperation.push(currentOperation);
         display.innerHTML = '';
         op = MULTIPLY;
+    });
+
+    SUBTRACT.addEventListener('click', function() {
+        previousOperation.push(currentOperation);
+        display.innerHTML = '';
+        op = SUBTRACT;
     });
 
 /* Pseudocode:
