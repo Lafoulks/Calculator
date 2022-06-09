@@ -13,7 +13,7 @@ let result;
 
 //1. Create functions for all the basic math operators
 
-const ADDITION = (a, b) => a + b;
+const ADDITION = (a, b) => parseInt(a) + parseInt(b);
 const SUBTRACTION = (a, b) => a - b;
 const MULTIPLICATION = (a, b) => a * b;
 const DIVISION = (a, b) => a / b;
@@ -71,6 +71,20 @@ Once operate has been called, update display with the solution*/
         display.innerHTML = '';
         op = SUBTRACT;
     });
+
+    ADD.addEventListener('click', function() {
+        previousOperation.push(currentOperation);
+        display.innerHTML = '';
+        op = ADD;
+    });
+
+    DIVIDE.addEventListener('click', function() {
+        previousOperation.push(currentOperation);
+        display.innerHTML = '';
+        op = DIVIDE;
+    });
+
+
 
 /* Pseudocode:
 1) Num1 is clicked and stored in currentOperation.
