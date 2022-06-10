@@ -6,10 +6,11 @@ const DIVIDE = document.getElementById('divide');
 const EQUALS = document.getElementById('equals');
 const AC = document.getElementById('ac');
 let display = document.querySelector('p.value');
-let op;
-let currentOperation = [];
-let previousOperation = [];
+let operand;
+let currentNum;
+let previousNum;
 let result;
+let temp;
 
 //1. Create functions for all the basic math operators
 
@@ -20,14 +21,14 @@ const DIVISION = (a, b) => a / b;
 
 //2. Create a new function operate that takes an operator and 2 numbers and then calls one of the above functions on the numbers.
 
-let operate = function (op, a, b) {
-    if (op == ADD) {
+let operate = function (operand, a, b) {
+    if (operand == ADD) {
         return ADDITION(a, b);
-    } else if (op == MULTIPLY) {
+    } else if (operand == MULTIPLY) {
         return MULTIPLICATION(a, b);
-    } else if (op == DIVIDE) {
+    } else if (operand == DIVIDE) {
         return DIVISION(a, b);
-    } else if (op == SUBTRACT) {
+    } else if (operand == SUBTRACT) {
         return SUBTRACTION(a, b);
     }
 };
@@ -36,13 +37,12 @@ let operate = function (op, a, b) {
 
 AC.addEventListener('click', function() {
     display.innerHTML = '';
-    currentOperation = [];
-    previousOperation = [];
+    currentNum = '';
+    previousNum = '';
 });
 
 EQUALS.addEventListener('click', function () {
-    result = operate(op, previousOperation, currentOperation);
-    console.log(result);
+    result = operate(operand, previousNum, currentNum);
     display.innerHTML = result;
 });
 
@@ -51,8 +51,7 @@ EQUALS.addEventListener('click', function () {
 DIGIT.forEach((DIGIT) => {
     DIGIT.addEventListener('click', function () {
         display.innerHTML += DIGIT.name;
-        currentOperation = display.innerHTML;
-        console.log(currentOperation);
+        currentNum = display.innerHTML;
     });
 });
 
@@ -60,44 +59,37 @@ DIGIT.forEach((DIGIT) => {
 Save which operation has been chosen and then operate() on them when the user presses the “=” key.
 Once operate has been called, update display with the solution*/
 
-   MULTIPLY.addEventListener('click', function() {
-        previousOperation.push(currentOperation);
+    MULTIPLY.addEventListener('click', function() {
+        operand = MULTIPLY;
+        if (previousNum && currentNum) {
+        temp = operate(operand, previousNum, currentNum);
+        console.log(temp);
+        
+    }
+        previousNum = currentNum;
         display.innerHTML = '';
-        op = MULTIPLY;
     });
 
     SUBTRACT.addEventListener('click', function() {
-        previousOperation.push(currentOperation);
+        previousNum = currentNum;
         display.innerHTML = '';
-        op = SUBTRACT;
+        operand = SUBTRACT;
     });
 
     ADD.addEventListener('click', function() {
-        previousOperation.push(currentOperation);
+        previousNum = currentNum;
         display.innerHTML = '';
-        op = ADD;
+        operand = ADD;
     });
 
     DIVIDE.addEventListener('click', function() {
-        previousOperation.push(currentOperation);
+        previousNum = currentNum;
         display.innerHTML = '';
-        op = DIVIDE;
+        operand = DIVIDE;
     });
+/*
+CHAINING D:
 
+)
 
-
-/* Pseudocode:
-1) Num1 is clicked and stored in currentOperation.
-2) Operand is clicked
-    if (there is no value in previousOperation) {
-        push currentOperation to previousOperation
-        clear display
-        next num entered will be new currentOperation
-    }
-3) Num2 is clicked and stored as currentOperation 
-4) Equals button is clicked
-        let result = operate(op, a, b)
-        return result.display.innerHTML?
-        ????
-    
 */
