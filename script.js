@@ -29,8 +29,6 @@ let operate = function (operand, a, b) {
     }
 };
 
-//Displays button values
-
 DIGIT.forEach((DIGIT) => {
     DIGIT.addEventListener('click', function () {
         display.innerHTML += DIGIT.name;
@@ -38,23 +36,19 @@ DIGIT.forEach((DIGIT) => {
     });
 });
 
-//Operand functionality
-
 MULTIPLY.addEventListener('click', function() {
-    operand = MULTIPLY;
         if (previousNum && currentNum) {
         temp = operate(operand, previousNum, currentNum);
-        console.log(temp);
         previousNum = temp; 
         display.innerHTML = '';
     } else {
         previousNum = currentNum;
         display.innerHTML = '';
-    }      
+    }   
+    operand = MULTIPLY;
 });
 
 SUBTRACT.addEventListener('click', function() {
-    operand = SUBTRACT;
     if (previousNum && currentNum) {
         temp = operate(operand, previousNum, currentNum);
         previousNum = temp; 
@@ -63,40 +57,43 @@ SUBTRACT.addEventListener('click', function() {
         previousNum = currentNum;
         display.innerHTML = '';
     }
+    operand = SUBTRACT;
 });
 
 ADD.addEventListener('click', function() {
-    operand = ADD;
     if (previousNum && currentNum) {
         temp = operate(operand, previousNum, currentNum);
-        console.log(temp);
         previousNum = temp; 
         display.innerHTML = '';
     } else {
         previousNum = currentNum;
         display.innerHTML = '';
     }
+    operand = ADD;
 });
 
 DIVIDE.addEventListener('click', function() {
-    operand = DIVIDE;
     if (previousNum && currentNum) {
         temp = operate(operand, previousNum, currentNum);
-        console.log(temp);
         previousNum = temp; 
         display.innerHTML = '';
     } else {
         previousNum = currentNum;
         display.innerHTML = '';
     }
+    operand = DIVIDE;
 });
 
 EQUALS.addEventListener('click', function () {
     result = operate(operand, previousNum, currentNum);
-    display.innerHTML = result.toFixed(2);
+    display.innerHTML = result;
+    if (result % 2 !== 0) {
+        result.toFixed(2);
+    }
     if (display.innerHTML === "Infinity") {
         display.innerHTML = "Are you trying to break it?!"
     }
+    
 });
 
 AC.addEventListener('click', function() {
