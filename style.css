@@ -19,14 +19,14 @@ body {
 }
 
 #display {
+   display: flex;
+   justify-content: right;
    height: 100px;
    width: 350px;
    border: 1px solid black;
    margin: 20px;
    background-color: white;
    border-radius: 5%;
-   text-align: end;
-   font-size: 25px;
 }
 
 #top-row {
@@ -41,10 +41,6 @@ body {
    width: 160px;
    border-radius: 5%;
    font-size: 22px;
-}
-
-#clear {
-   background-color: rgb(220, 241, 255);
 }
 
 #ac {
@@ -64,5 +60,6 @@ body {
 
 .value {
   position: absolute;
-  font-size: 30px;
+  padding: 9px;
+  font-size: 32px;
 }
