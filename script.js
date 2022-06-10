@@ -44,6 +44,9 @@ AC.addEventListener('click', function() {
 EQUALS.addEventListener('click', function () {
     result = operate(operand, previousNum, currentNum);
     display.innerHTML = result;
+    if (display.innerHTML === "Infinity") {
+        display.innerHTML = "Are you trying to break it?!"
+    }
 });
 
 //4. Create the functions that populate the display. Store the ‘display value’ in a variable somewhere for use in the next step.
@@ -64,31 +67,63 @@ Once operate has been called, update display with the solution*/
         if (previousNum && currentNum) {
         temp = operate(operand, previousNum, currentNum);
         console.log(temp);
-        
-    }
+        previousNum = temp; 
+        display.innerHTML = '';
+    } else {
         previousNum = currentNum;
         display.innerHTML = '';
+    }
+        
     });
 
     SUBTRACT.addEventListener('click', function() {
+        operand = SUBTRACT;
+        if (previousNum && currentNum) {
+        temp = operate(operand, previousNum, currentNum);
+        previousNum = temp; 
+        display.innerHTML = '';
+    } else {
         previousNum = currentNum;
         display.innerHTML = '';
-        operand = SUBTRACT;
+    }
     });
 
     ADD.addEventListener('click', function() {
+        operand = ADD;
+        if (previousNum && currentNum) {
+        temp = operate(operand, previousNum, currentNum);
+        console.log(temp);
+        previousNum = temp; 
+        display.innerHTML = '';
+    } else {
         previousNum = currentNum;
         display.innerHTML = '';
-        operand = ADD;
+    }
     });
 
     DIVIDE.addEventListener('click', function() {
+        operand = DIVIDE;
+        if (previousNum && currentNum) {
+        temp = operate(operand, previousNum, currentNum);
+        console.log(temp);
+        previousNum = temp; 
+        display.innerHTML = '';
+    } else {
         previousNum = currentNum;
         display.innerHTML = '';
-        operand = DIVIDE;
+    }
     });
 /*
 CHAINING D:
+currentNum is entered
+operand is pressed
+currentNum is passed to previousNum, allowing for new input
+input is stored as currentNum 
+operand is pressed again
+    if there is current and previousNum, operate is called
+    operate value is stored in temp
+    temp is pushed to previousNum
+    new input is pushed to currentNum
 
 )
 
